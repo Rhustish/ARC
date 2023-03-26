@@ -1,7 +1,8 @@
 import  express  from "express";
-import learningController from "../controllers/learningController.js"
+import {sendLearningTitImg , playLearningAudio} from "../controllers/learningControllers.js"
 const router = express.Router();
 
-router.get("/learning",learningController)
+router.get("/",sendLearningTitImg)
+router.get("/:id",playLearningAudio)
 
 export default router;
