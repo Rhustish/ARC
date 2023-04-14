@@ -32,6 +32,94 @@ const HomeMainbar = () => {
       answer: {
           answerBody: "Door Bell",    
       }
+    },{ 
+      _id: '3',
+      name: 'DoorBell',
+      audioclip: doorbell,
+      type:'surroundings',
+      answer: {
+          answerBody: "Door Bell",    
+      }
+    },{ 
+      _id: '3',
+      name: 'DoorBell',
+      audioclip: doorbell,
+      type:'surroundings',
+      answer: {
+          answerBody: "Door Bell",    
+      }
+    },{ 
+      _id: '3',
+      name: 'DoorBell',
+      audioclip: doorbell,
+      type:'surroundings',
+      answer: {
+          answerBody: "Door Bell",    
+      }
+    },{ 
+      _id: '3',
+      name: 'DoorBell',
+      audioclip: doorbell,
+      type:'surroundings',
+      answer: {
+          answerBody: "Door Bell",    
+      }
+    },{ 
+      _id: '3',
+      name: 'DoorBell',
+      audioclip: doorbell,
+      type:'surroundings',
+      answer: {
+          answerBody: "Door Bell",    
+      }
+    },{ 
+      _id: '3',
+      name: 'DoorBell',
+      audioclip: doorbell,
+      type:'surroundings',
+      answer: {
+          answerBody: "Door Bell",    
+      }
+    },{ 
+      _id: '3',
+      name: 'DoorBell',
+      audioclip: doorbell,
+      type:'surroundings',
+      answer: {
+          answerBody: "Door Bell",    
+      }
+    },{ 
+      _id: '3',
+      name: 'DoorBell',
+      audioclip: doorbell,
+      type:'surroundings',
+      answer: {
+          answerBody: "Door Bell",    
+      }
+    },{ 
+      _id: '3',
+      name: 'DoorBell',
+      audioclip: doorbell,
+      type:'surroundings',
+      answer: {
+          answerBody: "Door Bell",    
+      }
+    },{ 
+      _id: '3',
+      name: 'DoorBell',
+      audioclip: doorbell,
+      type:'surroundings',
+      answer: {
+          answerBody: "Door Bell",    
+      }
+    },{ 
+      _id: '3',
+      name: 'DoorBell',
+      audioclip: doorbell,
+      type:'surroundings',
+      answer: {
+          answerBody: "Door Bell",    
+      }
     }]
 
   const location = useLocation()

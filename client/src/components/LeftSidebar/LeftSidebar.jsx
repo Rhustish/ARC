@@ -10,6 +10,9 @@ const LeftSidebar = () => {
       </div> 
       <nav className='side-nav'>
         <NavLink to='/' className='side-nav-links' activeClassName='active'>
+          <p>All</p>
+        </NavLink>
+        <NavLink to='/' className='side-nav-links' activeClassName='active'>
           <p>Surroundings</p>
         </NavLink>
         <NavLink to='/' className='side-nav-links' activeClassName='active'>

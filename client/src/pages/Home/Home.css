@@ -1,0 +1,147 @@
+.Home-container{
+    display: flex;
+    background-attachment: fixed;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.top-part{
+    height:100vh;
+    width: 100%;
+    background-size: cover;
+    background-image: linear-gradient(217deg, rgba(252, 243, 192, 0.27), rgba(155, 194, 201, 0.129) 70.71%), linear-gradient(127deg, rgb(18, 18, 18), rgba(0, 0, 0, 0) 70.71%), linear-gradient(336deg, rgba(40, 40, 40, 0.89), rgba(0,0,255,0) 70.71%),url(../../assets/arrbg.jpg);
+    background-position: 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+.Box-Head{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    height: 80vh;
+}
+
+.greeting{
+    font-size: xx-large;
+    color: rgba(255, 255, 255, 0.725);
+    padding:0;
+    width: fit-content;
+    height: 15%;
+}
+
+.HAY{
+    font-size: x-large;
+    color: rgb(177, 177, 177);
+    width: fit-content;
+}
+
+.nav-direc-box{
+    background-color:rgba(131, 131, 131, 0.159);   
+    display: flex;
+    flex-direction: column;
+    margin: 5%;
+    margin-top: 0px;
+    padding: 15px;
+    padding-top: 0px;
+    border-radius: 10px;
+    height: 80vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-header{
+    color:rgba(0, 155, 3, 0.57);
+    font-size: xxx-large;
+    text-align: center;
+}
+
+.nav-direc{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    gap:20px;
+}
+
+.scrollDown{
+    margin-bottom: 2%;
+    font-size:400%;
+    color:rgba(24, 133, 0, 0.745);
+    filter:drop-shadow(3px 3px 1px rgba(0, 0, 0, 0.338));
+    transition: .3s;
+    animation: 6s infinite downanim;
+}
+
+.scrollDown:hover{
+    animation:none;
+    transform: translate(3px,3px);
+    filter:none;
+}
+
+@keyframes downanim{
+    0% {
+        color:rgba(171, 171, 171, 0.807);
+    }
+
+    25%{
+        color:rgba(0, 0, 0, 0.726);
+    }
+
+    50%{
+        color:rgba(139, 139, 139, 0.684);
+    }
+
+    75%{
+        color:rgba(0, 0, 0, 0.726);
+    }
+
+    100% {
+        color:rgba(106, 106, 106, 0.807);
+    }
+}
+
+.contact-section{
+    display:flex;
+    flex-direction: row;
+    background-image:linear-gradient(rgba(174, 233, 48, 0.622),rgba(12, 83, 0, 0.638)),url('../../assets/navbar-image.png'), linear-gradient(rgb(174, 233, 48),rgba(12, 83, 0, 0.995));
+    background-repeat:no-repeat;
+    background-size: cover;
+    width:95%;
+    height: 35vh;
+    color: rgb(246, 255, 0);
+    padding-left: 5%;
+    align-items: flex-start;
+    justify-content: space-between;
+    border-radius: 10px;
+}
+
+.contact-logo{
+    display: flex;
+    width: 8%;
+    flex-direction: column;
+    padding-top: 2%;
+}
+
+.contact-info{
+    display: flex;
+    width: 15%;
+    flex-direction: column;
+    padding-right: 5%;
+    justify-content: center;
+}
+
+.contact{
+    display: flex;
+    width: 15%;
+    flex-direction: column;
+    padding-right: 5%;
+    justify-content: center;
+}

@@ -1,8 +1,8 @@
 .main-bar{
-    width: calc(100%);
+    width: calc(100% - 208px);
     float: left;
     margin: 25px 0px;
-    
+    margin-left: 14vw;
 }
 
 .instructions{
@@ -17,6 +17,8 @@
     display:inline-flex;
     align-items: baseline;
     gap:10px;
+    position: sticky;
+
 }
 
 .main-bar-header{
@@ -32,7 +34,7 @@
 
 .questions-space{
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     flex-direction: row;
     gap:10px
 }
