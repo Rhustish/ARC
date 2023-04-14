@@ -6,8 +6,7 @@ const Learning = () => {
   return (
     <div className='learning-container-1'>
       <LeftSidebar/>
-      <HomeMainbar/>
-      
+      <HomeMainbar/>      
     </div>
   )
 }
