@@ -1,4 +1,3 @@
-import {useEffect} from "react";
 import { useFormik} from "formik";
 import {
   Box,
@@ -21,6 +20,14 @@ import './Arrival.css'
 
 
 const Arrival = () => {
+
+  const [show, setShow] = useState(false)
+  const handleClickpass = () => setShow(!show)
+  const [signup, setsignup] = useState(true)
+  const handlesignup = () => setsignup(!signup)
+  const [enter, setenter] = useState(true)
+  const handelClickfr = () => setenter(!enter)
+
   const {isLoading, response, submit} = useSubmit();
   const passwordreg = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
   const formik = useFormik({
@@ -29,7 +36,8 @@ const Arrival = () => {
       firstName:"",
       logpassword:"",
       signpassword:'',
-      signemail:''
+      signemail:'',
+      isSignUp:false
 
     },
     validationSchema: Yup.object({
@@ -51,7 +59,9 @@ const Arrival = () => {
 
       signemail: Yup.string()
       .email("Please enter a valid email address.")
-      .required('Required')
+      .required('Required'),
+
+      isSignUp: Yup.bool()
     }),
     onSubmit: (values) => {
       submit(values);
@@ -59,12 +69,7 @@ const Arrival = () => {
     
   });
 
-  const [show, setShow] = useState(false)
-  const handleClickpass = () => setShow(!show)
-  const [signup, setsignup] = useState(true)
-  const handlesignup = () => setsignup(!signup)
-  const [enter, setenter] = useState(true)
-  const handelClickfr = () => setenter(!enter)
+
 
 
   
