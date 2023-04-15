@@ -17,7 +17,7 @@ import * as Yup from 'yup';
 import useSubmit from "../../hooks/useSubmit";
 import { useState } from "react";
 import './Arrival.css'
-import arrbg from '../../assets/arrbg.jpg'
+
 
 
 const Arrival = () => {

@@ -1,57 +1,14 @@
 .outer-box{
-    width: 100%;
-    flex-wrap: nowrap;
+    width: 20%;
     display: flex;
-    flex-direction:column;
-    border-radius: 10px;
-    border: 2px solid rgb(62, 123, 0);
-    background-color: rgba(168, 197, 109, 0.562);
-    padding-bottom: 40px;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
+    color: rgb(60, 235, 255);
+    gap: 3%;
 }
 
-.statement{
-    font-size: large;
-    color: rgba(25, 101, 0, 0.758);
-    background-color: rgba(28, 152, 0, 0.46);
-    width: 100%;
-    border-radius: 9px;
-    text-align: center;
+.card-obj{
+    width: 45rem;
+    height: 15rem;
+    object-fit: cover;
 }
-
-.desc{
-    color: rgba(37, 149, 0, 0.758);
-    padding-bottom: 20px;
-    padding-left: 10px;
-    padding-right: 10px;
-
-}
-
-.navi-btn{
-    padding: 10px;
-    margin:5px;
-    font-size: x-large;
-    text-decoration: none;
-    color: rgb(220, 255, 150);
-    background-color: rgb(4, 106, 0);
-    border-radius: 10px;
-    transition: .2s;
-}
-
-.navi-btn:hover{
-    background-color:rgb(220, 255, 150);
-    color: rgb(4, 106, 0);
-    box-shadow: 2px 2px 5px #00000033;
-}
-
-.link-button{
-    transition: all .2s;
-}
-
-.link-button:hover{
-    transform: translate(2px, -2px);
-}
-
-
-
