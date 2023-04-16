@@ -6,11 +6,13 @@ import { createUserWithEmailAndPassword , signInWithEmailAndPassword} from "fire
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 
+
 const useSubmit = () => {
   const [isLoading, setLoading] = useState(false);
   const [response, setResponse] = useState(null);
 
   const submit = async (data) => {
+    console.log("hello")
     console.log("hello")
     setLoading(true);
     try {

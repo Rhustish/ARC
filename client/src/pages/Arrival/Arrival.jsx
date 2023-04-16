@@ -64,6 +64,7 @@ const Arrival = () => {
 
 
 
+
   
   return (
     <div className="auth">
