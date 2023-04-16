@@ -1,23 +1,35 @@
 import {useState} from "react";
+import {auth} from "../../src/firebaseConfig"                 
+import { createUserWithEmailAndPassword , signInWithEmailAndPassword} from "firebase/auth"
+
 
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-/**
- * This is a custom hook that can be used to submit a form and simulate an API call
- * It uses Math.random() to simulate a random success or failure, with 50% chance of each
- */
+
 const useSubmit = () => {
   const [isLoading, setLoading] = useState(false);
   const [response, setResponse] = useState(null);
 
   const submit = async (data) => {
-    const random = Math.random();
+    console.log("hello")
     setLoading(true);
     try {
-      await wait(2000);
-      if (random < 0.5) {
-        throw new Error("Something went wrong");
+      
+    if(!data.isSignUp){
+      createUserWithEmailAndPassword(auth , data.signemail , data.signpassword)
+        .then(()=>{
+          console.log('donald')
+        })
       }
+    
+    else{
+      signInWithEmailAndPassword(auth , data.logemail , data.logpassword)
+      .then(()=>{
+        console.log('duck');
+        //set user
+      })
+    }
+    console.log('shit')
       setResponse({
         type: 'success',
         message: `Thanks for your submission ${data.firstName}, we will get back to you shortly!`,
