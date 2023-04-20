@@ -15,7 +15,7 @@ import {
 } from "@chakra-ui/react";
 import * as Yup from 'yup';
 import useSubmit from "../../hooks/useSubmit";
-import { useState } from "react";
+import { useState ,useEffect} from "react";
 import {useNavigate} from 'react-router-dom'
 import './Signup.css'
 import {useAlertContext} from "../../context/alertContext";
@@ -40,7 +40,7 @@ const Signup = () => {
       firstName:"",
       signpassword:'',
       signemail:'',
-      isSignUp:false
+      isSignUp:true
 
     },
     validationSchema: Yup.object({
@@ -61,10 +61,18 @@ const Signup = () => {
     onSubmit: (values) => {
       console.log(values)
       submit(values);
-      onOpen(response.type, response.message);
     },
     
   });
+
+  useEffect(() => { 
+    if (response) { 
+      onOpen(response.type, response.message); 
+      if (response.type === 'success') { 
+        formik.resetForm(); 
+      } 
+    } 
+  }, [response]); 
 
   return (
     <div className="auth">

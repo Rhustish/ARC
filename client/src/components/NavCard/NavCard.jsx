@@ -18,12 +18,12 @@ const NavCard = (props) => {
 
 return (
 <Link to={`/${props.linker}`}>
-  <Box width='20vw' height='fit-content' borderWidth='1px' borderRadius='lg' backgroundColor={props.bgColor} color={props.textColor}>  
+  <Box borderWidth='1px' borderRadius='lg' backgroundColor={props.bgColor} color={props.textColor} borderColor={props.bgColor} className='outer-box'>  
     <Box >
       <Image src={props.bgImage} alt='image' borderRadius='lg' fit='cover' className='card-obj'/>
     </Box>  
     <Box p='6'>
-      <Box minH='4rem'>
+      <Box>
         <Heading size='lg' fontWeight='bold' >{props.menuOpt}</Heading>
       </Box> 
     </Box>

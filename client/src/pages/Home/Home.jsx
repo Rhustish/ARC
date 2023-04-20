@@ -14,13 +14,13 @@ const Home = () => {
     <div className='home-container'>
       <Navbar/>
       <div className="nav-block">
-        <div className="block">
-          <NavCard linker='Learning' bgImage={Test1Img} menuOpt='செவிவழி விழிப்புணர்வு' bgColor='rgb(255, 63, 63)' textColor='rgb(255, 219, 219)'/>
-          <NavCard linker='Learning' bgImage={Test2Img} menuOpt='செவிவழி வேறுபாடு' bgColor='rgb(255, 221, 0)' textColor='rgb(163, 125, 0)'/>
-          <NavCard linker='Learning' bgImage={LearnImg} menuOpt='கற்றல்' bgColor='rgb(255, 221, 0)' textColor='rgb(163, 125, 0)'/>
+        <div className="block b1">
+          <NavCard linker='Test1/Level1' bgImage={Test1Img} menuOpt='செவிவழி விழிப்புணர்வு' bgColor='rgb(255, 63, 63)' textColor='rgb(255, 219, 219)'/>
+          <NavCard linker='Learning' bgImage={Test2Img} menuOpt='செவிவழி வேறுபாடு' bgColor='rgb(0, 168, 6)' textColor='rgb(124, 255, 128)'/>
+          <NavCard linker='Learning' bgImage={LearnImg} menuOpt='கற்றல்' bgColor='rgb(103, 198, 236)' textColor='rgb(0, 54, 135)'/>
         </div>
-        <div className="block">
-          <NavCard linker='Learning' bgImage={Settings} menuOpt='அமைப்புகள்' bgColor='rgb(255, 221, 0)' textColor='rgb(163, 125, 0)'/>
+        <div className="block b2">
+          <NavCard linker='Learning' bgImage={Settings} menuOpt='அமைப்புகள்' bgColor='rgb(79, 0, 198)' textColor='rgb(210, 180, 255)'/>
           <NavCard linker='Learning' bgImage={Help} menuOpt='உதவி' bgColor='rgb(255, 221, 0)' textColor='rgb(163, 125, 0)'/>
         </div>
       </div>      

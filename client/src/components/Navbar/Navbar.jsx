@@ -14,7 +14,7 @@ const Navbar=()=>{
             <div className="navbar" >
                 <div className="logo-section">
                     <Link to='/' className='nav-item nav-logo'>
-                    <Heading size='lg'>Sevithiran</Heading>
+                    <Heading size='lg'>செவித்திறன்</Heading>
                     </Link>
                 </div>
                 <div className="buttons">

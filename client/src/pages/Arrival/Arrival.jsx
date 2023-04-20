@@ -17,7 +17,7 @@ import useSubmit from "../../hooks/useSubmit";
 import { useState } from "react";
 import {useNavigate} from 'react-router-dom'
 import './Arrival.css'
-import {useAlertContext} from "../../context/alertContext";
+
 
 
 const Arrival = () => {
@@ -38,18 +38,18 @@ const Arrival = () => {
   const passwordreg = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
   const formik = useFormik({
     initialValues: {
-      logemail:"",
-      logpassword:"",
+      signemail:"",
+      signpassword:"",
       isSignUp:false
 
     },
     validationSchema: Yup.object({
 
-      logemail: Yup.string()
+      signemail: Yup.string()
       .email("Please enter a valid email address.")
       .required('Required'),
 
-      logpassword: Yup.string()       
+      signpassword: Yup.string()       
       .required("Required"),
 
       isSignUp: Yup.bool()
@@ -62,10 +62,6 @@ const Arrival = () => {
   });
 
 
-
-
-
-  
   return (
     <div className="auth">
       {enter && <div className="front-page">
@@ -82,31 +78,31 @@ const Arrival = () => {
             <Box p={5} rounded="md" w="100%">
               <form onSubmit={formik.handleSubmit}>
                 <VStack spacing={4}>
-                  <FormControl isInvalid={!!formik.errors.logemail & formik.touched.logemail}>
-                    <FormLabel htmlFor="logemail">Email Address</FormLabel>
+                  <FormControl isInvalid={!!formik.errors.signemail & formik.touched.signemail}>
+                    <FormLabel htmlFor="signemail">Email Address</FormLabel>
                     <Input
                       borderColor='#9452f7'
-                      id="logemail"
-                      name="logemail"
-                      type="email"
+                      id="signemail"
+                      name="signemail"
+                      type="signemail"
                       onChange={formik.handleChange}
                       onBlur={formik.handleBlur}
-                      value={formik.values.logemail}
+                      value={formik.values.signemail}
                     />
-                    <FormErrorMessage>{formik.errors.logemail}</FormErrorMessage>
+                    <FormErrorMessage>{formik.errors.signemail}</FormErrorMessage>
                   </FormControl>
-                  <FormControl >
-                    <FormLabel htmlFor="logpassword">Password</FormLabel>
+                  <FormControl isInvalid={!!formik.errors.signpassword & formik.touched.signpassword}>
+                    <FormLabel htmlFor="signpassword">Password</FormLabel>
                     <InputGroup size='md'>
                       <Input
-                        id='logpassword'
-                        name='logpassword'
+                        id='signpassword'
+                        name='signpassword'
                         borderColor='#9452f7'
                         type={show ? 'text' : 'password'}
                         placeholder='Enter password'
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
-                        value={formik.values.logpassword}
+                        value={formik.values.signpassword}
                       />
                       <InputRightElement width='4.5rem'>
                         <Button h='1.75rem' size='sm' onClick={handleClickpass}>
@@ -114,7 +110,7 @@ const Arrival = () => {
                         </Button>
                       </InputRightElement>
                     </InputGroup>
-                    
+                    <FormErrorMessage>{formik.errors.signpassword}</FormErrorMessage>
                   </FormControl>
                   <Button type="submit" colorScheme="purple" width="full" isDisabled={isLoading}>
                   {isLoading? "Logging In" : "Log In"}
@@ -137,3 +133,4 @@ const Arrival = () => {
 };
 
 export default Arrival;
+

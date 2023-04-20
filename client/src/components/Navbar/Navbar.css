@@ -1,11 +1,11 @@
 .main-nav{
-    min-height:9%;
+    min-height:4.8rem;
     width: 100%;
     margin: 0% auto;
     border-top: solid 3px #001571;
     box-shadow: 0px 1px 5px #00000033;
     position:fixed;
-    z-index: 5;
+    z-index: 1;
     top :0%;
     left: 0%;
     background-color: #f8f9f9;
@@ -29,7 +29,7 @@
     font-size:small;
     font-weight:500;
     text-decoration:none;
-    color:rgb(181, 177, 80);
+    color:rgb(0, 23, 92);
     transition:0.2s;
 }
 .nav-btn{
@@ -38,7 +38,7 @@
     padding:  10px 20px;
 }
 .nav-item:hover{
-    background-color: rgba(175, 173, 131, 0.529);
+    background-color: rgba(0, 4, 118, 0.136);
 }
 
 .navbar form{
@@ -75,13 +75,13 @@
     padding: 7px 13px;
     border:solid 1px rgb(0, 20, 131);
     border-radius: 10px;
-    background-color: #fffb0049;
+    background-color: #002c6f49;
     cursor:pointer;
-    color: #00096a;
+    color: #00064d;
 }
 
 .nav-links:hover{
-    background-color: #22007910;
+    background-color: #00095a5e;
 }
 
 .nav-logo{

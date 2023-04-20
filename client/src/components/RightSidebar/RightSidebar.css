@@ -1,0 +1,9 @@
+.boxer{
+    border: 2px solid black;
+    width: 15vw;
+    height: 50%;
+    position:fixed;
+    z-index: 1px;
+    right: 0;
+    top: 4.8rem
+}
