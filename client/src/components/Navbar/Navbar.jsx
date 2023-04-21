@@ -23,7 +23,7 @@ const Navbar=()=>{
                         <input type="text" class="search-click" id='searchText' name="searchText" placeholder="search here..." />
                     </form>
                     { User === null ?
-                        <Link to='/Arrival' className='nav-item nav-links'>Log In</Link>:
+                        <Link to='/' className='nav-item nav-links'>Log In</Link>:
                         <>
                             <Link to='/profile' className='' style={{color:'white', textDecoration:'none' }}><Avatar backgroundColor='#009dff' px='10px' py='15px' borderRadius='50%' color='white'>N</Avatar></Link>
                             <button className='nav-item nav-links'>Log out</button>

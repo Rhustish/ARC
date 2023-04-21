@@ -3,6 +3,7 @@ import {useNavigate} from 'react-router-dom'
 import {auth} from "../../src/firebaseConfig"                 
 import { createUserWithEmailAndPassword , signInWithEmailAndPassword} from "firebase/auth"
 
+
 const useSubmit = () => {
   const [isLoading, setLoading] = useState(false);
   const [response, setResponse] = useState(null);
@@ -10,7 +11,7 @@ const useSubmit = () => {
   const navigate = useNavigate()
 
   const submit = async (data) => {
-    console.log("hello")
+    console.log("data")
     setLoading(true);
     try {
       
@@ -18,6 +19,7 @@ const useSubmit = () => {
       createUserWithEmailAndPassword(auth , data.signemail , data.signpassword)
         .then(()=>{
           console.log('donald')
+
         })
         .then(()=>{
           setResponse({
@@ -58,4 +60,19 @@ const useSubmit = () => {
   return { isLoading, response, submit };
 }
 
+/* sample signup Object:{Name: ""
+          gender: ""
+          isSignUp: true
+          q1: "0"
+          q2: "0"
+          q3: ""
+          q4: ""
+          q5: ""
+          q6: ""
+          q7: ""
+          q8: ""
+          q9: ""
+          q10:""
+          signemail: ""
+          signpassword: "" }*/
 export default useSubmit;
