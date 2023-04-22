@@ -4,7 +4,6 @@ import { ChakraProvider } from '@chakra-ui/react'
 import { AlertProvider } from "./context/alertContext";
 import Alert from "./components/Alert";
 import './App.css';
-import Navbar from './components/Navbar/Navbar';
 
 function App() {
   return (
