@@ -1,10 +1,19 @@
-import {useState} from "react";
+import {useState,useContext} from "react";
 import {useNavigate} from 'react-router-dom'
 import {auth} from "../../src/firebaseConfig"                 
 import { createUserWithEmailAndPassword , signInWithEmailAndPassword} from "firebase/auth"
+import UserContext from "../context/userContext";
+
 
 
 const useSubmit = () => {
+  const {updateEmail , updateuid} = useContext(UserContext);
+
+  const postLoginFunc = (email , uid)=>{
+    updateEmail(email)
+    updateuid(uid)
+  }
+
   const [isLoading, setLoading] = useState(false);
   const [response, setResponse] = useState(null);
 
@@ -17,17 +26,16 @@ const useSubmit = () => {
       
     if(data.isSignUp){
       createUserWithEmailAndPassword(auth , data.signemail , data.signpassword)
-        .then(()=>{
-
+        .then((e)=>{
+          postLoginFunc(e.user.email , e.user.uid)
           navigate('/Home')
         })
       }
     
     else{
       signInWithEmailAndPassword(auth , data.signemail, data.signpassword)
-
-      .then(()=>{
-        console.log();  
+      .then((e)=>{
+        postLoginFunc(e.user.email , e.user.uid) 
         navigate('/Home')
       })
     }
