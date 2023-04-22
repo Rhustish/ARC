@@ -2,16 +2,16 @@ import React from 'react';
 import {Link , useNavigate} from 'react-router-dom'
 import {FcSearch} from 'react-icons/fc'
 import Avatar from '../Avatar'
-import { useState } from 'react';
+import { useState,useContext } from 'react';
 import './Navbar.css'
 import { Heading } from '@chakra-ui/react';
 import { signOut } from 'firebase/auth';
 import { auth } from '../../firebaseConfig';
+import UserContext from '../../context/userContext';
 
 const Navbar=()=>{
-
     const navigate = useNavigate();
-
+    const {uid} = useContext(UserContext);
     const Logout=()=>{
         signOut(auth)
         .then(()=>{
@@ -21,9 +21,7 @@ const Navbar=()=>{
             console.log(e);
         })
     }
-
-    const [color,setColor] = useState('#fadee8')
-    var User = 1
+    // const [color,setColor] = useState('#fadee8')
     return (
         <nav className='main-nav' >
             <div className="navbar" >
@@ -35,11 +33,12 @@ const Navbar=()=>{
                 <div className="buttons">
                     <form>
                         <label htmlFor="searchText"><FcSearch className='search-icon' /></label>
-                        <input type="text" class="search-click" id='searchText' name="searchText" placeholder="search here..." />
+                        <input type="text" className="search-click" id='searchText' name="searchText" placeholder="search here..." />
                     </form>
-                    { User === null ?
+                    { uid === null ?
                         <Link to='/' className='nav-item nav-links'>Log In</Link>:
                         <>
+                            {console.log("hello")}
                             <Link to='/profile' className='' style={{color:'white', textDecoration:'none' }}><Avatar backgroundColor='#009dff' px='10px' py='15px' borderRadius='50%' color='white'>N</Avatar></Link>
                             <button className='nav-item nav-links' onClick={Logout}>Log out</button>
                         </>
