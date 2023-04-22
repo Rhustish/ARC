@@ -10,13 +10,8 @@ import { auth } from '../../firebaseConfig';
 import UserContext from '../../context/userContext';
 
 const Navbar=()=>{
-
-    
-
     const navigate = useNavigate();
-
     const {uid} = useContext(UserContext);
-
     const Logout=()=>{
         signOut(auth)
         .then(()=>{
@@ -26,9 +21,7 @@ const Navbar=()=>{
             console.log(e);
         })
     }
-
-    const [color,setColor] = useState('#fadee8')
-
+    // const [color,setColor] = useState('#fadee8')
     return (
         <nav className='main-nav' >
             <div className="navbar" >
