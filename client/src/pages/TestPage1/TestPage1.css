@@ -6,6 +6,8 @@
     flex-direction: row;
     justify-content: flex-start;
     margin: 0% auto;
+    background-color: #a0e7ff;
+    color:rgb(3, 0, 204);
 }
 
 .t1-left{
@@ -14,11 +16,19 @@
 
 .t1-bars{
     padding-left: 4%;
-    width: 100%
+    width: 100%;
+}
+
+.t1-mainbar{
+    width:37vw;
 }
 
 .t1-right{
-    width: 24%;
+    width: 35vw;
     display: flex;
     flex-direction: column;
+}
+
+.t1-header{
+    padding-right: 10%;
 }

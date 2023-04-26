@@ -126,7 +126,7 @@ const Signup = () => {
   }, [response]); // erase contents on succesful form submission
 
   return (
-    <div className="auth">
+    <div className="auth-signup">
       {/* below starts page 1 */}
     {page1?<div className="auth-box page-1"> 
        <div className="signup-auth">

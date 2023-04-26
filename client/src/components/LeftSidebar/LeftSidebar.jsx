@@ -2,6 +2,8 @@ import React from 'react'
 import './LeftSidebar.css'
 import { NavLink } from 'react-router-dom'
 import { Heading, Button } from '@chakra-ui/react'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHouse } from "@fortawesome/free-solid-svg-icons";
 
 
 const LeftSidebar = () => {
@@ -29,6 +31,9 @@ const LeftSidebar = () => {
         <NavLink to='/Test1/Level6' className='side-nav-links' activeClassName='active'>
           <Heading size='md'>நிலை 6</Heading>
         </NavLink>   
+        <NavLink to='/Home' className='side-nav-links' activeClassName='active'>
+          <Heading size='md'><FontAwesomeIcon icon={faHouse} /></Heading>
+        </NavLink>
       </nav>
     </div>
   )

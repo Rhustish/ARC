@@ -3,7 +3,7 @@
 [ {    
         "id": 1,
         "name": "cooker",
-        "t_name": "குழந்தை",
+        "t_name": "குக்கர்",
         "name_audio": "https://drive.google.com/file/d/1XVERz24V4xEEeMdhSrBjLwDP4bwu-MAz/view?usp=share_link",    
         "audio": "https://drive.google.com/file/d/1Kqr2Iu5GR0ovX-iQI9zmn3HmVURTpt2d/view?usp=share_link",        
         "file_code": "V.A.1.a" 
@@ -67,7 +67,7 @@
         },
        { "id": 9, 
         "name": " Prayer bell",   
-      "t_name": " சைரன் ",    
+      "t_name": " பூஜை மணி ",    
       "name_audio": "https://drive.google.com/file/d/1UwibuqAg666RiHP3yVYDeRTikCqM6G0O/view?usp=share_link",
       "audio": "https://drive.google.com/file/d/1nfQpXvnvFTuAdRK8OeaLj1ebT3wF05x-/view?usp=share_link",          
       "file_code": "V.A.1.i"  
@@ -85,6 +85,10 @@
                "name_audio": "https://drive.google.com/file/d/1-HgQm6a3rtL8KmZ1jFfWSHilWv9cUv3r/view?usp=share_link",
                "audio": "https://drive.google.com/file/d/1aIndQABLgEZ5Sokf6J81x_4GDlpKgOjH/view?usp=share_link",        
                "file_code": "V.A.1.k"  
-        }
+        },
+        {
+          "id": 12,
+          "instructions": "music file"
+         }
       ]
     }
