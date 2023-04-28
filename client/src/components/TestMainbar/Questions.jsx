@@ -14,12 +14,17 @@ import {
   Box } from '@chakra-ui/react';
 import AudioContext from '../../context/audioContext'
 import doorbell from '../../assets/doorbell.mp3'
-import {storage} from '../../firebaseConfig'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlay,faPause } from "@fortawesome/free-solid-svg-icons";
+import {useLocation} from "react-router-dom"
 
 const Questions = (props) => {
 
+  const location = useLocation()
+
 //sample audio handler
-  const audioRef = useRef(null)
+  const audioRef = useRef({doorbell})
+  const [play, setplay] = useState(false)
 
   const handlePlay = () =>{
     audioRef.current.currentTime = 0;
@@ -53,7 +58,7 @@ const Questions = (props) => {
       setanst1("இல்லை")
       sett1ren(false)
     }
-    console.log("world",anst1)
+
   },[t1ren,anst1])
 //**Q2
   useEffect( () => {
@@ -66,7 +71,7 @@ const Questions = (props) => {
       setanst2("இல்லை")
       sett2ren(false)
     }
-    console.log("llo",anst1)
+
   },[t2ren,anst2])
 //**Q3
   useEffect( () => {
@@ -79,7 +84,7 @@ const Questions = (props) => {
       setanst3("இல்லை")
       sett3ren(false)
     }
-    console.log("he",anst1)
+
   },[t3ren,anst3])
 //
 
@@ -113,7 +118,7 @@ const Questions = (props) => {
 
   const handleChanget2 = (e) =>{
     sett2(e.target.value)
-    console.log(e.target.value, "bee",anst2)
+
     if(e.target.value == anst2){
       setT2st(true)
     }
@@ -148,6 +153,23 @@ const Questions = (props) => {
   },[t1,t2,t3])
 //
 
+useEffect(()=>{
+  console.log("in here")
+  if(audioRef.current.paused == true){
+    setplay(true)
+  }
+  else{
+    setplay(false)
+  }
+},[audioRef.current.paused])
+
+useEffect(() =>{
+  sett1('')
+  sett2('')
+  sett3('')
+},[location])
+
+console.log(audioData.audio)
 
   return (
     <div className='questions-main-container'>
@@ -158,16 +180,16 @@ const Questions = (props) => {
                 </Box>
                 <AccordionIcon />
               </AccordionButton>
-                  <audio ref={audioRef}>
-                    <source src={doorbell} type="audio/mpeg" />
-                  </audio>
+                  <audio ref={audioRef} src={audioData.audio}/>
             <AccordionPanel pb={4}>
             <VStack >
               <Box border='2px' borderRadius='10px' p={6}>
                 <HStack>
                   <Heading size='md' fontWeight='normal' pb='15px'><strong>சோதனை 1:  </strong>நீங்கள் ஒலி கேட்க முடியுமா?</Heading>
-                  {t1ren?<Button colorScheme='blue' color='#09008a' borderRadius='20px' onClick={handlePlay}>பிளே</Button>:
-                    <Button colorScheme='blue' color='#09008a' borderRadius='20px'>பிளே</Button>}
+                  {t1ren?<Button colorScheme='blue' color='#09008a' borderRadius='20px' onClick={handlePlay}>
+                      {play?<FontAwesomeIcon icon={faPlay} size="sm" style={{color: "#070070",}} />:<FontAwesomeIcon icon={faPause} size="sm" style={{color: "#070070",}} />}
+                    </Button>:
+                    <Button colorScheme='blue' color='#09008a' borderRadius='20px'><FontAwesomeIcon icon={faPlay} size="sm" style={{color: "#070070",}} /></Button>}
                   
                 </HStack>
                   <RadioGroup value={t1}>
@@ -181,8 +203,10 @@ const Questions = (props) => {
               <Box border='2px' borderRadius='10px' p={6}>
               <HStack>
                   <Heading size='md' fontWeight='normal' pb='15px'><strong>சோதனை 2:  </strong>நீங்கள் ஒலி கேட்க முடியுமா?</Heading>
-                  {t2ren?<Button colorScheme='blue' color='#09008a' borderRadius='20px' onClick={handlePlay}>பிளே</Button>:
-                    <Button colorScheme='blue' color='#09008a' borderRadius='20px'>பிளே</Button>}
+                  {t2ren?<Button colorScheme='blue' color='#09008a' borderRadius='20px' onClick={handlePlay}>
+                      {play?<FontAwesomeIcon icon={faPlay} size="sm" style={{color: "#070070",}} />:<FontAwesomeIcon icon={faPause} size="sm" style={{color: "#070070",}} />}
+                    </Button>:
+                    <Button colorScheme='blue' color='#09008a' borderRadius='20px'><FontAwesomeIcon icon={faPlay} size="sm" style={{color: "#070070",}} /></Button>}
                 </HStack>
                   
                     <RadioGroup value={t2}>
@@ -196,8 +220,10 @@ const Questions = (props) => {
               <Box border='2px' borderRadius='10px' p={6}>
               <HStack>
                   <Heading size='md' fontWeight='normal' pb='15px'><strong>சோதனை 3:  </strong>நீங்கள் ஒலி கேட்க முடியுமா?</Heading>
-                  {t3ren?<Button colorScheme='blue' color='#09008a' borderRadius='20px' onClick={handlePlay}>பிளே</Button>:
-                    <Button colorScheme='blue' color='#09008a' borderRadius='20px'>பிளே</Button>}
+                  {t3ren?<Button colorScheme='blue' color='#09008a' borderRadius='20px' onClick={handlePlay}>
+                      {play?<FontAwesomeIcon icon={faPlay} size="sm" style={{color: "#070070",}} />:<FontAwesomeIcon icon={faPause} size="sm" style={{color: "#070070",}} />}
+                    </Button>:
+                    <Button colorScheme='blue' color='#09008a' borderRadius='20px'><FontAwesomeIcon icon={faPlay} size="sm" style={{color: "#070070",}} /></Button>}
                 </HStack>
                   
                     <RadioGroup value={t3}>

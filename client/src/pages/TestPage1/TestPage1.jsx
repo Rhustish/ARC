@@ -27,32 +27,32 @@ const TestPage1 = () => {
     case '/Test1/Level1':
       page_head='நிலை 1 - காட்சி குறிப்புகளுடன்'
       json_getter='I'
-      level='Level 1'
+      level='Level_1'
       break;
     case '/Test1/Level2':
       page_head = 'நிலை 2 - காட்சி குறிப்புகள் இல்லாமல்'
       json_getter='II'
-      level='Level 2'
+      level='Level_2'
       break;
     case '/Test1/Level3':
       page_head = 'நிலை 3 - அருகிலுள்ள ஒலிகள்'
       json_getter='III'
-      level='Level 3'
+      level='Level_3'
       break;
     case '/Test1/Level4':
       page_head = 'நிலை 4 - தூர ஒலிகள்'
       json_getter='IV'
-      level='Level 4'
+      level='Level_4'
       break;
     case '/Test1/Level5':
       page_head = 'நிலை 5 - அமைதியான சூழ்நிலையில்'
       json_getter='V'
-      level='Level 5'
+      level='Level_5'
       break;
     case '/Test1/Level6':
       page_head = 'நிலை 6 - பின்னணி இரைச்சல் முன்னிலையில்'
       json_getter='VI'
-      level='Level 6'
+      level='Level_6'
       break;
   }
 //
@@ -90,24 +90,24 @@ const TestPage1 = () => {
   
 
 //fetch audio, image from firebase storage
-  useEffect(() => {
+  // useEffect(() => {
 
-    const imageRef = ref(storage, `Test_A_1/Level_1/${audioData.file_code}.png`)
+  //   const imageRef = ref(storage, `Test_A_1/Level_1/${audioData.file_code}.png`)
 
-    getDownloadURL(imageRef).then(url => {
-      fetch(url,{method: 'GET',
-      mode: 'cors',
-      headers: {
-        'Content-Type': 'png'
-      }})
-        .then(response => response.blob())
-        .then(blob => {
-          setimageFile(blob);
-        });
-    }).catch(error => {
-      console.log(error);
-    });
-  }, [audioData]);
+  //   getDownloadURL(imageRef).then(url => {
+  //     fetch(url,{method: 'GET',
+  //     mode: 'cors',
+  //     headers: {
+  //       'Content-Type': 'png'
+  //     }})
+  //       .then(response => response.blob())
+  //       .then(blob => {
+  //         setimageFile(blob);
+  //       });
+  //   }).catch(error => {
+  //     console.log(error);
+  //   });
+  // }, [audioData]);
 //*********** incomplete code*****************
 
 
@@ -139,13 +139,13 @@ const TestPage1 = () => {
             <Heading size='lg' noOfLines={2}>உரத்த சுற்றுச்சூழல் ஒலிகள்</Heading>
           </div>
           <div className="t1-mainbar">
-          {tableData.Data.length > 0 && (<TestMainbar tableData={tableData.Data}  />)}
+          {tableData.Data.length > 0 && (<TestMainbar tableData={tableData.Data}  level={level}/>)}
           </div>  
         </div>  
       </div>
       
         <div className="t1-right">
-          <RightSidebar data={audioData} page_head={page_head} imageData={imageFile}/>
+        {tableData.Data.length > 0 && <RightSidebar data={audioData} page_head={page_head} imageData={imageFile} level={level} dispData={tableData.Data[11]}/>}
         </div>
       </AudioContext.Provider>
     </div>

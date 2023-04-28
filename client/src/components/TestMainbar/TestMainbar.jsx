@@ -5,7 +5,7 @@ import './TestMainbar.css'
 const TestMainbar = (props) => {
   return (
     <div className='tm-main-container'>
-      <QuestionList tableData={props.tableData} />
+      <QuestionList tableData={props.tableData} level={props.level}/>
     </div>
   )
 }

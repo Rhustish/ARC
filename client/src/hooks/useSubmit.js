@@ -8,12 +8,14 @@ import UserContext from "../context/userContext";
 
 
 const useSubmit = () => {
-  const {updateEmail , updateuid} = useContext(UserContext);
+  const {uid, uemail, updateEmail , updateuid} = useContext(UserContext);
 
   const postLoginFunc = (email , uid)=>{
     updateEmail(email)
     updateuid(uid)
   }
+
+
 
   const [isLoading, setLoading] = useState(false);
   const [response, setResponse] = useState(null);
@@ -44,6 +46,9 @@ const useSubmit = () => {
           })
         })
         .then(()=>{
+          localStorage.setItem('uid', uid)
+          localStorage.setItem('uemail', uemail)
+          localStorage.setItem('isLoggedIn','true')
           navigate('/Home')
         })
       }

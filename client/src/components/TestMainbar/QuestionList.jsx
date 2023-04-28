@@ -24,7 +24,7 @@ const QuestionList = (props) => {
           if(object.id<=11){
           return(
           <AccordionItem border='2px' borderRadius='30px' mb='4%' bgColor="rgb(255, 241, 48)" color='#09008a' >
-            <Questions key={object.id} data={object} />
+            <Questions key={object.id} data={object} level={props.level} />
           </AccordionItem>
           )
         }})

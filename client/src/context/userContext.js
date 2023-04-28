@@ -5,7 +5,7 @@ const UserContext = React.createContext()
 export const UserProvider = ({ children }) => {
   const [uid, setUid] = React.useState(null)
   const [uemail,setUemail] = React.useState(null)
-
+  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
 
   const updateuid = newValue => {
     setUid(newValue)
@@ -14,10 +14,9 @@ export const UserProvider = ({ children }) => {
     setUemail(newValue)
   }
 
-  const userMemo = React.useMemo(()=>({uid , setUid , uemail , setUemail}) , [uid , uemail])
 
   return (
-    <UserContext.Provider value={{userMemo , updateEmail , updateuid}}>
+    <UserContext.Provider value={{isLoggedIn, setIsLoggedIn, uid, uemail , updateEmail , updateuid}}>
       {children}
     </UserContext.Provider>
   )
