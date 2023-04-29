@@ -59,6 +59,12 @@ const useSubmit = () => {
         postLoginFunc(e.user.email , e.user.uid) 
         navigate('/Home')
       })
+      .then(()=>{
+        localStorage.setItem('uid', uid)
+        localStorage.setItem('uemail', uemail)
+        localStorage.setItem('isLoggedIn','true')
+        navigate('/Home')
+      })
     }
       
     } catch (error) {

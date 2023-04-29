@@ -44,6 +44,10 @@ const Questions = (props) => {
   const[t1ren,sett1ren] = useState(true)//checks which button to render, one with audio or one without it
   const[t2ren,sett2ren] = useState(true) 
   const[t3ren,sett3ren] = useState(true)
+
+  const [t1disabler,sett1Disabler] = useState(false)
+  const [t2disabler,sett2Disabler] = useState(false)
+  const [t3disabler,sett3Disabler] = useState(false)
 //
 
 //audio randomizer mechanism
@@ -114,6 +118,8 @@ const Questions = (props) => {
     else{
       setT1st(false)
     }
+
+    sett1Disabler(true)
   }
 
   const handleChanget2 = (e) =>{
@@ -125,6 +131,7 @@ const Questions = (props) => {
     else{
       setT2st(false)
     }
+    sett2Disabler(true)
   }
 
   const handleChanget3 = (e) =>{
@@ -135,6 +142,7 @@ const Questions = (props) => {
     else{
       setT3st(false)
     }
+    sett3Disabler(true)
   }
 //
 
@@ -167,6 +175,9 @@ useEffect(() =>{
   sett1('')
   sett2('')
   sett3('')
+  sett1Disabler(false)
+  sett2Disabler(false)
+  sett3Disabler(false)
 },[location])
 
 console.log(audioData.audio)
@@ -192,7 +203,7 @@ console.log(audioData.audio)
                     <Button colorScheme='blue' color='#09008a' borderRadius='20px'><FontAwesomeIcon icon={faPlay} size="sm" style={{color: "#070070",}} /></Button>}
                   
                 </HStack>
-                  <RadioGroup value={t1}>
+                  <RadioGroup value={t1} isDisabled={t1disabler} colorScheme='blue'>
                     <HStack justifyContent='center' spacing='40px'>
                       <Radio value="ஆம்" onChange={handleChanget1} colorScheme='blue'>ஆம்</Radio>
                       <Radio value="இல்லை" onChange={handleChanget1} colorScheme='blue'>இல்லை</Radio>
@@ -209,7 +220,7 @@ console.log(audioData.audio)
                     <Button colorScheme='blue' color='#09008a' borderRadius='20px'><FontAwesomeIcon icon={faPlay} size="sm" style={{color: "#070070",}} /></Button>}
                 </HStack>
                   
-                    <RadioGroup value={t2}>
+                    <RadioGroup value={t2} isDisabled={t2disabler}>
                       <HStack justifyContent='center' spacing='40px'>
                         <Radio onChange={handleChanget2} value="ஆம்" colorScheme='blue'>ஆம்</Radio>
                         <Radio value="இல்லை" onChange={handleChanget2} colorScheme='blue'>இல்லை</Radio>
@@ -226,7 +237,7 @@ console.log(audioData.audio)
                     <Button colorScheme='blue' color='#09008a' borderRadius='20px'><FontAwesomeIcon icon={faPlay} size="sm" style={{color: "#070070",}} /></Button>}
                 </HStack>
                   
-                    <RadioGroup value={t3}>
+                    <RadioGroup value={t3} isDisabled={t3disabler}>
                       <HStack justifyContent='center' spacing='40px'>
                         <Radio onChange={handleChanget3} value="ஆம்" colorScheme='blue'>ஆம்</Radio>
                         <Radio value="இல்லை" onChange={handleChanget3} colorScheme='blue'>இல்லை</Radio>
