@@ -15,7 +15,7 @@ const Home = () => {
       <Navbar/>
       <div className="nav-block">
         <div className="block b1">
-          <NavCard linker='Test1/Level1' bgImage={Test1Img} menuOpt='செவிவழி விழிப்புணர்வு' bgColor='rgb(255, 63, 63)' textColor='rgb(255, 219, 219)'/>
+          <NavCard linker='TestA1Menu' bgImage={Test1Img} menuOpt='செவிவழி விழிப்புணர்வு' bgColor='rgb(255, 63, 63)' textColor='rgb(255, 219, 219)'/>
           <NavCard linker='Learning' bgImage={Test2Img} menuOpt='செவிவழி வேறுபாடு' bgColor='rgb(0, 168, 6)' textColor='rgb(124, 255, 128)'/>
           <NavCard linker='Learning' bgImage={LearnImg} menuOpt='கற்றல்' bgColor='rgb(103, 198, 236)' textColor='rgb(0, 54, 135)'/>
         </div>

@@ -46,6 +46,7 @@ const Signup = () => {
       signpassword:'',
       signemail:'',
       gender: '',
+      age: '',
       q1:'',
       q2:'',
       q3:'',
@@ -73,6 +74,9 @@ const Signup = () => {
       .required('Required'),
 
       gender: Yup.string()
+      .required("Required"),
+
+      age: Yup.number()
       .required("Required"),
 
       q1: Yup.string()
@@ -126,9 +130,10 @@ const Signup = () => {
   }, [response]); // erase contents on succesful form submission
 
   return (
+    <div className="signup-page">
     <div className="auth-signup">
       {/* below starts page 1 */}
-    {page1?<div className="auth-box page-1"> 
+    {page1?<div className="auth-box-signup page-1"> 
        <div className="signup-auth">
         <VStack alignItems="center" color='#9452f7' >
             <Heading as="h1" id="auth-section">
@@ -155,6 +160,21 @@ const Signup = () => {
                     />
                     <FormErrorMessage>{formik.errors.Name}</FormErrorMessage>
                   </FormControl>
+
+                  <FormControl isInvalid={!!formik.errors.age & formik.touched.age}> 
+                    <FormLabel htmlFor="age">Age</FormLabel>
+                    <Input
+                      id="age"
+                      name="age"
+                      type='number'
+                      borderColor='#9452f7'
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      value={formik.values.age}
+                    />
+                    <FormErrorMessage>{formik.errors.age}</FormErrorMessage>
+                  </FormControl>
+
                   <FormControl isInvalid={!!formik.errors.gender & formik.touched.gender}>
                     <FormLabel htmlFor="gender">Gender</FormLabel>
                     <RadioGroup 
@@ -454,6 +474,7 @@ const Signup = () => {
           }
                   
                 
+        </div>
         </div>
       
   )

@@ -23,13 +23,111 @@ const Questions = (props) => {
   const location = useLocation()
 
 //sample audio handler
-  const audioRef = useRef({doorbell})
-  const [play, setplay] = useState(false)
+  const audioReft1 = useRef(null)
+  const audioReft2 = useRef(null)
+  const audioReft3 = useRef(null)
+  const [playt1, setplayt1] = useState(false)
+  const [playt2, setplayt2] = useState(false)
+  const [playt3, setplayt3] = useState(false)
 
-  const handlePlay = () =>{
-    audioRef.current.currentTime = 0;
-    audioRef.current.play()
+  const handlePlayt1 = () =>{
+    audioReft1.current.currentTime = 0;
+    audioReft1.current.play()
   }
+
+  const handlePlayt2 = () =>{
+    audioReft2.current.currentTime = 0;
+    audioReft2.current.play()
+  }
+
+  const handlePlayt3 = () =>{
+    audioReft3.current.currentTime = 0;
+    audioReft3.current.play()
+  }
+
+  const fhandlePlayt1 = () =>{
+    audioReft1.current.currentTime = 0;
+    audioReft1.current.play()
+    audioReft1.current.muted = true
+  }
+
+  const fhandlePlayt2 = () =>{
+    audioReft2.current.currentTime = 0;
+    audioReft2.current.play()
+    audioReft2.current.muted = true
+  }
+
+  const fhandlePlayt3 = () =>{
+    audioReft3.current.currentTime = 0;
+    audioReft3.current.play()
+    audioReft3.current.muted = true
+  }
+
+  useEffect(() => {
+    const handleAudioPlay = () => {
+      setplayt1(true);
+    };
+  
+    const handleAudioEnded = () => {
+      setplayt1(false);
+    };
+  
+    if (audioReft1.current) {
+      audioReft1.current.addEventListener("play", handleAudioPlay);
+      audioReft1.current.addEventListener("ended", handleAudioEnded);
+    }
+  
+    return () => {
+      if (audioReft1.current) {
+        audioReft1.current.removeEventListener("play", handleAudioPlay);
+        audioReft1.current.removeEventListener("ended", handleAudioEnded);
+      }
+    };
+  }, [audioReft1.current]);
+
+  useEffect(() => {
+    const handleAudioPlay = () => {
+      setplayt2(true);
+    };
+  
+    const handleAudioEnded = () => {
+      setplayt2(false);
+    };
+  
+    if (audioReft2.current) {
+      audioReft2.current.addEventListener("play", handleAudioPlay);
+      audioReft2.current.addEventListener("ended", handleAudioEnded);
+    }
+  
+    return () => {
+      if (audioReft2.current) {
+        audioReft2.current.removeEventListener("play", handleAudioPlay);
+        audioReft2.current.removeEventListener("ended", handleAudioEnded);
+      }
+    };
+  }, [audioReft2.current]);
+
+  useEffect(() => {
+    const handleAudioPlay = () => {
+      setplayt3(true);
+    };
+  
+    const handleAudioEnded = () => {
+      setplayt3(false);
+    };
+  
+    if (audioReft3.current) {
+      audioReft3.current.addEventListener("play", handleAudioPlay);
+      audioReft3.current.addEventListener("ended", handleAudioEnded);
+    }
+  
+    return () => {
+      if (audioReft3.current) {
+        audioReft3.current.removeEventListener("play", handleAudioPlay);
+        audioReft3.current.removeEventListener("ended", handleAudioEnded);
+      }
+    };
+  }, [audioReft3.current]);
 //
 
 //individual answer management states
@@ -45,18 +143,22 @@ const Questions = (props) => {
   const[t2ren,sett2ren] = useState(true) 
   const[t3ren,sett3ren] = useState(true)
 
-  const [t1disabler,sett1Disabler] = useState(false)
+  const [t1disabler,sett1Disabler] = useState(false)//disables the radio button once the answer is selected
   const [t2disabler,sett2Disabler] = useState(false)
   const [t3disabler,sett3Disabler] = useState(false)
 //
 
 //audio randomizer mechanism
 //**Q1 
+
+  let yesCount = 0
+
   useEffect( () => {
     let x=Math.floor(Math.random()*100)
-    if(x%2==0){
+    if(x%2==0 || yesCount==0){
       setanst1("ஆம்")
       sett1ren(true)
+      yesCount++
     }
     else{
       setanst1("இல்லை")
@@ -67,9 +169,10 @@ const Questions = (props) => {
 //**Q2
   useEffect( () => {
     let x=Math.floor(Math.random()*100)
-    if(x%2==0){
+    if(x%2==0 || yesCount==0){
       setanst2("ஆம்")
       sett2ren(true)
+      yesCount++
     }
     else{
       setanst2("இல்லை")
@@ -80,9 +183,10 @@ const Questions = (props) => {
 //**Q3
   useEffect( () => {
     let x=Math.floor(Math.random()*100)
-    if(x%2==0){
+    if(x%2==0 || yesCount==0){
       setanst3("ஆம்")
       sett3ren(true)
+      yesCount++
     }
     else{
       setanst3("இல்லை")
@@ -161,15 +265,7 @@ const Questions = (props) => {
   },[t1,t2,t3])
 //
 
-useEffect(()=>{
-  console.log("in here")
-  if(audioRef.current.paused == true){
-    setplay(true)
-  }
-  else{
-    setplay(false)
-  }
-},[audioRef.current.paused])
+
 
 useEffect(() =>{
   sett1('')
@@ -180,27 +276,30 @@ useEffect(() =>{
   sett3Disabler(false)
 },[location])
 
-console.log(audioData.audio)
 
   return (
     <div className='questions-main-container'>
       <div className="play-button">
-              <AccordionButton borderRadius='30px' _expanded={{bg:'rgb(224, 212, 47)', color:'#09008a'}}>
+              <AccordionButton borderRadius='30px' _expanded={{bg:'rgba(205, 238, 255, 0.822)', color:'rgba(0, 120, 163, 0.866)'}}>
                 <Box as="span" flex='1' textAlign='center' onClick={handleClick}>
                   <Heading size='lg' fontWeight='normal'>{props.data.t_name}</Heading>
                 </Box>
                 <AccordionIcon />
               </AccordionButton>
-                  <audio ref={audioRef} src={audioData.audio}/>
-            <AccordionPanel pb={4}>
+                  <audio ref={audioReft1} src={audioData.audio}/>
+                  <audio ref={audioReft2} src={audioData.audio}/>
+                  <audio ref={audioReft3} src={audioData.audio}/>
+            {audioData && <AccordionPanel pb={4}>
             <VStack >
               <Box border='2px' borderRadius='10px' p={6}>
                 <HStack>
                   <Heading size='md' fontWeight='normal' pb='15px'><strong>சோதனை 1:  </strong>நீங்கள் ஒலி கேட்க முடியுமா?</Heading>
-                  {t1ren?<Button colorScheme='blue' color='#09008a' borderRadius='20px' onClick={handlePlay}>
-                      {play?<FontAwesomeIcon icon={faPlay} size="sm" style={{color: "#070070",}} />:<FontAwesomeIcon icon={faPause} size="sm" style={{color: "#070070",}} />}
+                  {t1ren?<Button bgColor='rgba(255, 186, 255, 0.866)' _hover={{bgColor:'rgba(255, 148, 244, 0.866)'}} borderRadius='20px' onClick={handlePlayt1}>
+                      {playt1?<FontAwesomeIcon icon={faPause} size="sm" style={{color: "rgba(0, 128, 255, 0.866)",}} />:<FontAwesomeIcon icon={faPlay} size="sm" style={{color: "rgba(0, 128, 255, 0.866)",}} />}
                     </Button>:
-                    <Button colorScheme='blue' color='#09008a' borderRadius='20px'><FontAwesomeIcon icon={faPlay} size="sm" style={{color: "#070070",}} /></Button>}
+                    <Button bgColor='rgba(255, 186, 255, 0.866)' _hover={{bgColor:'rgba(255, 148, 244, 0.866)'}} borderRadius='20px' onClick={fhandlePlayt1}>
+                    {playt1?<FontAwesomeIcon icon={faPause} size="sm" style={{color: "rgba(0, 128, 255, 0.866)",}} />:<FontAwesomeIcon icon={faPlay} size="sm" style={{color: "rgba(0, 128, 255, 0.866)",}} />}
+                  </Button>}
                   
                 </HStack>
                   <RadioGroup value={t1} isDisabled={t1disabler} colorScheme='blue'>
@@ -214,10 +313,12 @@ console.log(audioData.audio)
               <Box border='2px' borderRadius='10px' p={6}>
               <HStack>
                   <Heading size='md' fontWeight='normal' pb='15px'><strong>சோதனை 2:  </strong>நீங்கள் ஒலி கேட்க முடியுமா?</Heading>
-                  {t2ren?<Button colorScheme='blue' color='#09008a' borderRadius='20px' onClick={handlePlay}>
-                      {play?<FontAwesomeIcon icon={faPlay} size="sm" style={{color: "#070070",}} />:<FontAwesomeIcon icon={faPause} size="sm" style={{color: "#070070",}} />}
+                  {t2ren?<Button bgColor='rgba(255, 186, 255, 0.866)' borderRadius='20px' _hover={{bgColor:'rgba(255, 148, 244, 0.866)'}} onClick={handlePlayt2}>
+                      {playt2?<FontAwesomeIcon icon={faPause} size="sm" style={{color: "rgba(0, 128, 255, 0.866)",}} />:<FontAwesomeIcon icon={faPlay} size="sm" style={{color: "rgba(0, 128, 255, 0.866)",}} />}
                     </Button>:
-                    <Button colorScheme='blue' color='#09008a' borderRadius='20px'><FontAwesomeIcon icon={faPlay} size="sm" style={{color: "#070070",}} /></Button>}
+                    <Button bgColor='rgba(255, 186, 255, 0.866)' borderRadius='20px' _hover={{bgColor:'rgba(255, 148, 244, 0.866)'}} onClick={fhandlePlayt2}>
+                    {playt2?<FontAwesomeIcon icon={faPause} size="sm" style={{color: "rgba(0, 128, 255, 0.866)",}} />:<FontAwesomeIcon icon={faPlay} size="sm" style={{color: "rgba(0, 128, 255, 0.866)",}} />}
+                  </Button>}
                 </HStack>
                   
                     <RadioGroup value={t2} isDisabled={t2disabler}>
@@ -231,10 +332,12 @@ console.log(audioData.audio)
               <Box border='2px' borderRadius='10px' p={6}>
               <HStack>
                   <Heading size='md' fontWeight='normal' pb='15px'><strong>சோதனை 3:  </strong>நீங்கள் ஒலி கேட்க முடியுமா?</Heading>
-                  {t3ren?<Button colorScheme='blue' color='#09008a' borderRadius='20px' onClick={handlePlay}>
-                      {play?<FontAwesomeIcon icon={faPlay} size="sm" style={{color: "#070070",}} />:<FontAwesomeIcon icon={faPause} size="sm" style={{color: "#070070",}} />}
+                  {t3ren?<Button bgColor='rgba(255, 186, 255, 0.866)' _hover={{bgColor:'rgba(255, 148, 244, 0.866)'}} borderRadius='20px' onClick={handlePlayt3}>
+                      {playt3?<FontAwesomeIcon icon={faPause} size="sm" style={{color: "rgba(0, 128, 255, 0.866)",}} />:<FontAwesomeIcon icon={faPlay} size="sm" style={{color: "rgba(0, 128, 255, 0.866)",}} />}
                     </Button>:
-                    <Button colorScheme='blue' color='#09008a' borderRadius='20px'><FontAwesomeIcon icon={faPlay} size="sm" style={{color: "#070070",}} /></Button>}
+                    <Button bgColor='rgba(255, 186, 255, 0.866)' _hover={{bgColor:'rgba(255, 148, 244, 0.866)'}} borderRadius='20px' onClick={fhandlePlayt3}>
+                    {playt3?<FontAwesomeIcon icon={faPause} size="sm" style={{color: "rgba(0, 128, 255, 0.866)",}} />:<FontAwesomeIcon icon={faPlay} size="sm" style={{color: "rgba(0, 128, 255, 0.866)",}} />}
+                  </Button>}
                 </HStack>
                   
                     <RadioGroup value={t3} isDisabled={t3disabler}>
@@ -246,7 +349,7 @@ console.log(audioData.audio)
                   
               </Box>
             </VStack>
-            </AccordionPanel>
+            </AccordionPanel>}
       </div>
     </div>
   )

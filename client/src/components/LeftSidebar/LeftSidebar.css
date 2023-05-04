@@ -1,6 +1,6 @@
 .left-sidebar{
     width: 18vw;
-    box-shadow: 4px 1px 0 rgb(224, 212, 47);
+    box-shadow: 4px 1px 0 rgb(255, 162, 187);
     transition: box-shadow ease-in-out 0.1s, transform ease-in-out 0.1s;
     transform: translateZ(0);
     box-sizing: border-box;
@@ -12,7 +12,7 @@
     flex-direction: column;
     justify-content: center;
     gap: 0px;
-    background-color:rgb(39, 161, 255) ;
+    background-color:rgba(255, 187, 210, 0.542) ;
 }
 
 .left-sidebar-heading{
@@ -20,7 +20,7 @@
     padding-left: 1vw;
     margin-bottom: 10%;
     position: sticky;
-    color:#0013a0
+    color:#cf32ff
 }
 
 .side-nav{
@@ -32,7 +32,7 @@
     text-decoration: none;
     width: 80%;
     border-radius: 20px;
-    color: rgb(165, 121, 0);
+    color: rgb(255, 226, 194);
     display:flex;
     padding: 2%;
     justify-content: center;
@@ -40,17 +40,21 @@
     margin-left: 8%;
     transition: 0.2s;   
     position: sticky; 
-    background-color: #0d00a0 ;
+    background-color: #b14bff ;
 }
 
 .side-nav-links:hover{
-    color:#0004fd;
-    background-color: rgb(83, 198, 255) ;
+    color:rgb(255, 236, 216);
+    background-color: rgb(194, 38, 255) ;
 }
 
 .active{
     font-weight: bolder;
-    color: rgb(179, 152, 3);
-    background-color: #09008a;
-    border-right: solid 5px rgb(0, 21, 209);
+    color: rgb(255, 236, 216);
+    background-color: rgb(152, 31, 200);
+    border-right: solid 5px rgb(210, 104, 209);
+}
+
+.abcdef{
+    color:rgba(0, 202, 125, 0.822);
 }

@@ -1,9 +1,12 @@
 import React from 'react'
 import Questions from './Questions'
 import { Button, Accordion, AccordionItem } from '@chakra-ui/react'
-import {Howl} from 'howler'
+
+
 
 const QuestionList = (props) => {
+
+
 
   // const soundPlay = (src) =>{
   //   const sound = new Howl ({
@@ -12,7 +15,6 @@ const QuestionList = (props) => {
   //   })
   //   sound.play()
   // }
-  
 
 
   
@@ -21,9 +23,9 @@ const QuestionList = (props) => {
       <Accordion allowToggle allowMultiple={false} pt="8%" pb="10%" >
       
         {props.tableData.map((object) =>{
-          if(object.id<=11){
+          if(object.id<=props.tableData.length-1){
           return(
-          <AccordionItem border='2px' borderRadius='30px' mb='4%' bgColor="rgb(255, 241, 48)" color='#09008a' >
+          <AccordionItem border='2px' borderRadius='30px' mb='4%' bgColor="rgba(205, 238, 255, 0.822)" color='rgba(29, 156, 203, 0.866)' >
             <Questions key={object.id} data={object} level={props.level} />
           </AccordionItem>
           )

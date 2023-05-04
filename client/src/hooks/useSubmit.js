@@ -8,9 +8,9 @@ import UserContext from "../context/userContext";
 
 
 const useSubmit = () => {
-  const {uid, uemail, updateEmail , updateuid} = useContext(UserContext);
+  const {uid, uemail, updateEmail , updateuid, pass} = useContext(UserContext);
 
-  const postLoginFunc = (email , uid)=>{
+  const postLoginFunc = (email , uid, upass)=>{
     updateEmail(email)
     updateuid(uid)
   }
@@ -29,10 +29,11 @@ const useSubmit = () => {
     if(data.isSignUp){
       createUserWithEmailAndPassword(auth , data.signemail , data.signpassword)
         .then((e)=>{
-          postLoginFunc(e.user.email , e.user.uid)
+          postLoginFunc(e.user.email , e.user.uid, e.user.pass)
           return setDoc(doc(db,"users",e.user.uid),{
             name: data.Name,
             gender: data.gender,
+            age: data.age,
             q1: data.q1,
             q2: data.q2,
             q3: data.q3,

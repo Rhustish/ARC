@@ -5,7 +5,7 @@ import Navbar from '../../components/Navbar/Navbar'
 import { db } from '../../firebaseConfig'
 import {doc , getDoc} from "firebase/firestore"
 import UserContext from '../../context/userContext'
-
+import { Heading, Text, Divider } from '@chakra-ui/react'
 
 
 const Profile = () => {
@@ -33,6 +33,7 @@ const Profile = () => {
         setDocumentData({
           name: data.name,
           email: uemail,
+          age: data.age,
           gender: data.gender,
           answers: [data.q1 , data.q2,data.q3 , data.q4,data.q5 , data.q6,data.q7 , data.q8,data.q9 , data.q10,]})
       }
@@ -43,22 +44,29 @@ const Profile = () => {
     return <div>Loading...</div>;
   }
   return (
-    <div>
+    <div className='profile-main-container'>
       <Navbar />
-    <div className="profile-container">
-      <img className='profileimage' src='https://www.svgrepo.com/show/396005/child-medium-dark-skin-tone.svg' alt={"imager"}/>
-      <h1>{user.name}</h1>
-      <p className="subheading">Profile Information</p>
-      <hr />
-      <div className="info-container">
-        <div className="info-item">
-          <p className="info-label">Email</p>
-          <p className="info-value">{user.email}</p>
+      <div className="basic-info">
+        <img className='profileimage' src='https://www.svgrepo.com/show/396005/child-medium-dark-skin-tone.svg' alt={"imager"} width='70%' />
+        <Heading size='xl'>{user.name}</Heading>
+        <Heading size='md'>Profile Information</Heading>
+        <Divider/>
+        <div className="profile-details">
+            <div className="info-item">
+              <Heading size='md'>Email:</Heading>
+              <Heading size='md'>{user.email}</Heading>
+            </div>
+            <div className="info-item">
+              <Heading size='md'>Gender:</Heading>
+              <Heading size='md'>{user.gender}</Heading>
+            </div>
+            <div className="info-item">
+              <Heading size='md'>Age:</Heading>
+              <Heading size='md'>{user.age}</Heading>
+            </div>
         </div>
-        <div className="info-item">
-          <p className="info-label">Gender</p>
-          <p className="info-value">{user.gender}</p>
-        </div>
+      </div>
+      <div className="question-pq-details">
         <div className="info-item">
           <p className="info-label">Questions</p>
           <ul className="question-list">
@@ -72,7 +80,7 @@ const Profile = () => {
           </ul>
         </div>
       </div>
-    </div>
+
     </div>
   )
 }
