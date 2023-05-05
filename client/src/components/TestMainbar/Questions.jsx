@@ -155,7 +155,7 @@ const Questions = (props) => {
 
   useEffect( () => {
     let x=Math.floor(Math.random()*100)
-    if(x%2==0 || yesCount==0){
+    if(x%2===0 || yesCount===0){
       setanst1("ஆம்")
       sett1ren(true)
       yesCount++
@@ -169,7 +169,7 @@ const Questions = (props) => {
 //**Q2
   useEffect( () => {
     let x=Math.floor(Math.random()*100)
-    if(x%2==0 || yesCount==0){
+    if(x%2===0 || yesCount===0){
       setanst2("ஆம்")
       sett2ren(true)
       yesCount++
@@ -183,7 +183,7 @@ const Questions = (props) => {
 //**Q3
   useEffect( () => {
     let x=Math.floor(Math.random()*100)
-    if(x%2==0 || yesCount==0){
+    if(x%2===0 || yesCount===0){
       setanst3("ஆம்")
       sett3ren(true)
       yesCount++
@@ -193,12 +193,12 @@ const Questions = (props) => {
       sett3ren(false)
     }
 
-  },[t3ren,anst3])
+  },[t3ren,anst3,yesCount])
 //
 
 
 //context usage
-  const {audioData, setaudioData, T1, setT1, T2, setT2, T3, setT3, T1st, setT1st, T2st, setT2st, T3st, setT3st  } =useContext(AudioContext)
+  const {audioData, setaudioData,  setT1,  setT2,  setT3,  setT1st,  setT2st,  setT3st  } =useContext(AudioContext)
 //
 
 //local answer state management
@@ -216,7 +216,7 @@ const Questions = (props) => {
 //manages the change in radio buttons selected
   const handleChanget1 = (e) =>{
     sett1(e.target.value)
-    if(e.target.value == anst1){
+    if(e.target.value === anst1){
       setT1st(true)
     }
     else{
@@ -229,7 +229,7 @@ const Questions = (props) => {
   const handleChanget2 = (e) =>{
     sett2(e.target.value)
 
-    if(e.target.value == anst2){
+    if(e.target.value === anst2){
       setT2st(true)
     }
     else{
@@ -240,7 +240,7 @@ const Questions = (props) => {
 
   const handleChanget3 = (e) =>{
     sett3(e.target.value)
-    if(e.target.value == anst3){
+    if(e.target.value === anst3){
       setT3st(true)
     }
     else{

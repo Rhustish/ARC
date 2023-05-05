@@ -67,13 +67,14 @@ const Profile = () => {
         </div>
       </div>
       <div className="question-pq-details">
-        <div className="info-item">
-          <p className="info-label">Questions</p>
+        <div className="question-pq-header">
+          <Heading>Parents' Answers to Questions</Heading>
+        </div>
+        <div className="question-block">
           <ul className="question-list">
             {user.answers.map((answer, index) => (
               <li key={index} className="question-item">
-                <span className="question-number">Q{index + 1}</span>
-                <span className='qtag'>{quarray[index]}</span>
+                <Heading size='md'>{quarray[index]}</Heading>
                 <span className="question-answer">{answer}</span>
               </li>
             ))}
